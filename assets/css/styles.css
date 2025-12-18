@@ -1348,5 +1348,5 @@ select {
 }
 
 .product-badge.sale {
-    background-color: var(--color-accent) !important;
+    background-color: #d80000 !important;
 }

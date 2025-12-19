@@ -6,54 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="تجوَل">
     <title>تجوَل</title>
-    <!-- Performance Preconnects -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-
-    <!-- LCP Preload -->
     <link rel="preload" as="image" href="assets/images/mobile.png" fetchpriority="high">
 
-    <!-- Google Fonts - Tajawal -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap"
         rel="stylesheet">
 
-    <!-- Font Awesome Icons -->
     <link rel="shortcut icon" href="assets/images/tajawalicon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-    <!-- Custom Styles -->
+    <link rel="stylesheet" href="assets/css/all.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body>
-    <!-- ================================================
-         Header Section
-         ================================================ -->
-    <header class="header">
-        <!-- Header Top Bar -->
-        <!-- <div class="header-top">
-            <div class="container">
-                <div class="header-top-right">
-                    <span><i class="fas fa-phone-alt"></i> اتصل بنا: 966-123-456-789+</span>
-                </div>
-                <div class="header-top-left">
-                    <span>شحن مجاني للطلبات فوق 200 ريال</span>
-                </div>
-            </div>
-        </div> -->
 
-        <!-- Header Main -->
+    <header class="header">
         <div class="header-main">
             <div class="container">
-                <!-- Logo -->
                 <a href="#" class="logo">
                     <h1 class="visually-hidden">تجوَل - متجر الإلكترونيات الأول</h1>
                     <img src="assets/images/tajawalLogo.png" alt="تجوَل" class="logo-img" width="100" height="40">
-                    <!-- <span class="logo-text">تجوَل</span> -->
                 </a>
 
-                <!-- Search Bar -->
                 <div class="search-bar" role="search">
                     <input type="text" name="search-field" placeholder="ابحث عن منتجات..." aria-label="ابحث عن منتجات">
                     <button type="button" aria-label="بحث">
@@ -61,7 +38,6 @@
                     </button>
                 </div>
 
-                <!-- Header Actions -->
                 <div class="header-actions">
                     <a href="#" class="header-action-btn" aria-label="المفضلة">
                         <i class="fa-solid fa-heart icon" aria-hidden="true"></i>
@@ -77,14 +53,12 @@
                     </a>
                 </div>
 
-                <!-- Mobile Menu Button -->
                 <button class="mobile-menu-btn" aria-label="قائمة التنقل">
                     <i class="fas fa-bars" aria-hidden="true"></i>
                 </button>
             </div>
         </div>
 
-        <!-- Navigation -->
         <nav class="nav">
             <div class="container">
                 <ul class="nav-list">
@@ -99,13 +73,9 @@
         </nav>
     </header>
     <main>
-        <!-- ================================================
-         Hero Section
-         ================================================ -->
         <section class="hero" aria-labelledby="hero-heading">
             <div class="container">
                 <div class="hero-grid">
-                    <!-- Banner 1 -->
                     <div class="hero-banner primary">
                         <div class="hero-overlay dark"></div>
                         <div class="hero-content">
@@ -119,7 +89,6 @@
                         </div>
                     </div>
 
-                    <!-- Banner 2 -->
                     <div class="hero-banner secondary">
                         <div class="hero-overlay"></div>
                         <div class="hero-content">
@@ -136,9 +105,6 @@
             </div>
         </section>
 
-        <!-- ================================================
-         Suggested Products Section
-         ================================================ -->
         <section id="products" class="section">
             <div class="container">
                 <div class="section-header">
@@ -150,11 +116,10 @@
                 </div>
 
                 <div class="products-grid">
-                    <!-- Product 1 -->
                     <div class="product-card">
                         <span class="product-badge new">جديد</span>
                         <div class="product-image">
-                            <img src="assets/images/s23ultra.png" alt="هاتف سامسونج" width="100" height="160">
+                            <img src="assets/images/s23ultra.webp" alt="هاتف سامسونج" width="100" height="160">
                         </div>
                         <h3 class="product-title">سامسونج جالاكسي S23 Ultra</h3>
                         <div class="product-rating">
@@ -181,12 +146,10 @@
                             </button>
                         </div>
                     </div>
-
-                    <!-- Product 2 -->
                     <div class="product-card">
                         <span class="product-badge sale">خصم 20%</span>
                         <div class="product-image">
-                            <img src="assets/images/airpodspro.png" alt="سماعات" width="166" height="166">
+                            <img src="assets/images/airpodspro.webp" alt="سماعات" width="166" height="166">
                         </div>
                         <h3 class="product-title">سماعات أبل AirPods Pro</h3>
                         <div class="product-rating">
@@ -213,11 +176,9 @@
                             </button>
                         </div>
                     </div>
-
-                    <!-- Product 3 -->
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="assets/images/series8watch.png" alt="ساعة ذكية" width="160" height="160">
+                            <img src="assets/images/series8watch.webp" alt="ساعة ذكية" width="160" height="160">
                         </div>
                         <h3 class="product-title">ساعة أبل الذكية Series 8</h3>
                         <div class="product-rating">
@@ -243,12 +204,10 @@
                             </button>
                         </div>
                     </div>
-
-                    <!-- Product 4 -->
                     <div class="product-card">
                         <span class="product-badge new">جديد</span>
                         <div class="product-image">
-                            <img src="assets/images/iphone15promax.png" alt="آيفون" width="160" height="160">
+                            <img src="assets/images/iphone15promax.webp" alt="آيفون" width="160" height="160">
                         </div>
                         <h3 class="product-title">آيفون 15 برو ماكس</h3>
                         <div class="product-rating">
@@ -275,11 +234,9 @@
                             </button>
                         </div>
                     </div>
-
-                    <!-- Product 5 -->
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="assets/images/macbookprom3.png" alt="لابتوب" width="160" height="160">
+                            <img src="assets/images/macbookprom3.webp" alt="لابتوب" width="160" height="160">
                         </div>
                         <h3 class="product-title">لابتوب ماك بوك برو M3</h3>
                         <div class="product-rating">
@@ -305,12 +262,10 @@
                             </button>
                         </div>
                     </div>
-
-                    <!-- Product 6 -->
                     <div class="product-card">
                         <span class="product-badge sale">خصم 15%</span>
                         <div class="product-image">
-                            <img src="assets/images/sonyWH1000XM5.png" alt="سماعات رأس" width="160" height="160">
+                            <img src="assets/images/sonyWH1000XM5.webp" alt="سماعات رأس" width="160" height="160">
                         </div>
                         <h3 class="product-title">سماعات سوني WH-1000XM5</h3>
                         <div class="product-rating">
@@ -337,11 +292,9 @@
                             </button>
                         </div>
                     </div>
-
-                    <!-- Product 7 -->
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="assets/images/galaxywatch6.png" alt="ساعة ذكية" width="160" height="160">
+                            <img src="assets/images/galaxywatch6.webp" alt="ساعة ذكية" width="160" height="160">
                         </div>
                         <h3 class="product-title">ساعة سامسونج Galaxy Watch 6</h3>
                         <div class="product-rating">
@@ -367,12 +320,10 @@
                             </button>
                         </div>
                     </div>
-
-                    <!-- Product 8 -->
                     <div class="product-card">
                         <span class="product-badge new">جديد</span>
                         <div class="product-image">
-                            <img src="assets/images/AlphaA7IV.png" alt="كاميرا" width="171" height="160">
+                            <img src="assets/images/AlphaA7IV.webp" alt="كاميرا" width="171" height="160">
                         </div>
                         <h3 class="product-title">كاميرا سوني Alpha A7 IV</h3>
                         <div class="product-rating">
@@ -402,10 +353,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- ================================================
-         Categories Section
-         ================================================ -->
         <section id="categories" class="section categories">
             <div class="container">
                 <div class="section-header">
@@ -417,50 +364,44 @@
                 </div>
 
                 <div class="categories-grid">
-                    <!-- Category 1 -->
                     <div class="category-card">
                         <div class="category-icon">
-                            <img src="assets/images/smartphonescategory.png" alt="هواتف" width="112" height="78">
+                            <img src="assets/images/smartphonescategory.webp" alt="هواتف" width="112" height="78">
                         </div>
                         <h3 class="category-name">الهواتف الذكية</h3>
                     </div>
 
-                    <!-- Category 2 -->
                     <div class="category-card">
                         <div class="category-icon">
-                            <img src="assets/images/computersCategory.png" alt="كمبيوتر" width="112" height="108">
+                            <img src="assets/images/computersCategory.webp" alt="كمبيوتر" width="112" height="108">
                         </div>
                         <h3 class="category-name">أجهزة الكمبيوتر</h3>
                     </div>
 
-                    <!-- Category 3 -->
                     <div class="category-card">
                         <div class="category-icon">
-                            <img src="assets/images/tabletsCategory.png" alt="تابلت" width="112" height="90">
+                            <img src="assets/images/tabletsCategory.webp" alt="تابلت" width="112" height="90">
                         </div>
                         <h3 class="category-name">الأجهزة اللوحية</h3>
                     </div>
 
-                    <!-- Category 4 -->
                     <div class="category-card">
                         <div class="category-icon">
-                            <img src="assets/images/smartwatchCategory.png" alt="ساعات" width="112" height="78">
+                            <img src="assets/images/smartwatchCategory.webp" alt="ساعات" width="112" height="78">
                         </div>
                         <h3 class="category-name">الساعات الذكية</h3>
                     </div>
 
-                    <!-- Category 5 -->
                     <div class="category-card">
                         <div class="category-icon">
-                            <img src="assets/images/headsetCategory.png" alt="سماعات" width="112" height="112">
+                            <img src="assets/images/headsetCategory.webp" alt="سماعات" width="112" height="112">
                         </div>
                         <h3 class="category-name">السماعات</h3>
                     </div>
 
-                    <!-- Category 6 -->
                     <div class="category-card">
                         <div class="category-icon">
-                            <img src="assets/images/camerasCategory.png" alt="كاميرات" width="112" height="84">
+                            <img src="assets/images/camerasCategory.webp" alt="كاميرات" width="112" height="84">
                         </div>
                         <h3 class="category-name">الكاميرات</h3>
                     </div>
@@ -468,9 +409,6 @@
             </div>
         </section>
 
-        <!-- ================================================
-         Best Sellers Carousel Section
-         ================================================ -->
         <section id="bestsellers" class="section bestsellers">
             <div class="container">
                 <div class="section-header">
@@ -487,11 +425,10 @@
                     </button>
 
                     <div class="carousel">
-                        <!-- Carousel Product 1 -->
                         <div class="product-card">
                             <span class="product-badge sale">الأكثر مبيعاً</span>
                             <div class="product-image">
-                                <img src="assets/images/A54.png" alt="هاتف" width="160" height="160">
+                                <img src="assets/images/A54.webp" alt="هاتف" width="160" height="160">
                             </div>
                             <h3 class="product-title">سامسونج جالاكسي A54</h3>
                             <div class="product-rating">
@@ -518,10 +455,9 @@
                             </div>
                         </div>
 
-                        <!-- Carousel Product 2 -->
                         <div class="product-card">
                             <div class="product-image">
-                                <img src="assets/images/iphone14pro.png" alt="آيفون" width="166" height="166">
+                                <img src="assets/images/iphone14pro.webp" alt="آيفون" width="166" height="166">
                             </div>
                             <h3 class="product-title">آيفون 14 برو</h3>
                             <div class="product-rating">
@@ -549,11 +485,10 @@
                             </div>
                         </div>
 
-                        <!-- Carousel Product 3 -->
                         <div class="product-card">
                             <span class="product-badge new">جديد</span>
                             <div class="product-image">
-                                <img src="assets/images/airpodsmax.png" alt="سماعات" width="127" height="166">
+                                <img src="assets/images/airpodsmax.webp" alt="سماعات" width="127" height="166">
                             </div>
                             <h3 class="product-title">سماعات أبل AirPods Max</h3>
                             <div class="product-rating">
@@ -580,10 +515,9 @@
                             </div>
                         </div>
 
-                        <!-- Carousel Product 4 -->
                         <div class="product-card">
                             <div class="product-image">
-                                <img src="assets/images/applewatchultra.png" alt="ساعة" width="166" height="166">
+                                <img src="assets/images/applewatchultra.webp" alt="ساعة" width="166" height="166">
                             </div>
                             <h3 class="product-title">ساعة أبل Watch Ultra</h3>
                             <div class="product-rating">
@@ -610,12 +544,10 @@
                                 </button>
                             </div>
                         </div>
-
-                        <!-- Carousel Product 5 -->
                         <div class="product-card">
                             <span class="product-badge sale">خصم 25%</span>
                             <div class="product-image">
-                                <img src="assets/images/dellLaptop.png" alt="لابتوب" width="220" height="128">
+                                <img src="assets/images/dellLaptop.webp" alt="لابتوب" width="220" height="128">
                             </div>
                             <h3 class="product-title">لابتوب ديل XPS 15</h3>
                             <div class="product-rating">
@@ -650,14 +582,9 @@
                 </div>
             </div>
         </section>
-
-        <!-- ================================================
-         Features Section
-         ================================================ -->
         <section class="features">
             <div class="container">
                 <div class="features-grid">
-                    <!-- Feature 1 -->
                     <div class="feature-item">
                         <div class="feature-icon">
                             <i class="fas fa-shipping-fast" aria-hidden="true"></i>
@@ -667,8 +594,6 @@
                             <p>للطلبات فوق 200 ريال</p>
                         </div>
                     </div>
-
-                    <!-- Feature 2 -->
                     <div class="feature-item">
                         <div class="feature-icon">
                             <i class="fas fa-headset" aria-hidden="true"></i>
@@ -678,8 +603,6 @@
                             <p>خدمة عملاء متاحة دائماً</p>
                         </div>
                     </div>
-
-                    <!-- Feature 3 -->
                     <div class="feature-item">
                         <div class="feature-icon">
                             <i class="fas fa-undo-alt" aria-hidden="true"></i>
@@ -689,8 +612,6 @@
                             <p>خلال 14 يوم من الشراء</p>
                         </div>
                     </div>
-
-                    <!-- Feature 4 -->
                     <div class="feature-item">
                         <div class="feature-icon">
                             <i class="fas fa-shield-alt" aria-hidden="true"></i>
@@ -703,10 +624,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- ================================================
-         Why Choose Us Section
-         ================================================ -->
         <section id="about" class="section why-us">
             <div class="container">
                 <div class="why-us-content">
@@ -753,25 +670,21 @@
                     </div>
                     <div class="why-us-images">
                         <div class="why-us-image">
-                            <img src="assets/images/iphone14pro.png" alt="منتج 1">
+                            <img src="assets/images/iphone14pro.webp" alt="منتج 1">
                         </div>
                         <div class="why-us-image">
-                            <img src="assets/images/airpodsmax.png" alt="منتج 2">
+                            <img src="assets/images/airpodsmax.webp" alt="منتج 2">
                         </div>
                         <div class="why-us-image">
-                            <img src="assets/images/airpodspro.png" alt="منتج 3">
+                            <img src="assets/images/airpodspro.webp" alt="منتج 3">
                         </div>
                         <div class="why-us-image">
-                            <img src="assets/images/applewatchultra.png" alt="منتج 4">
+                            <img src="assets/images/applewatchultra.webp" alt="منتج 4">
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- ================================================
-         Newsletter Section
-         ================================================ -->
         <section class="newsletter">
             <div class="container">
                 <div class="newsletter-content">
@@ -785,19 +698,13 @@
             </div>
         </section>
 
-        <!-- ================================================
-         Footer Section
-         ================================================ -->
         <footer id="contact" class="footer">
             <div class="container">
                 <div class="footer-grid">
-                    <!-- Footer About -->
                     <div class="footer-about">
-                        <!-- Logo -->
                         <a href="#" class="logo">
                             <img src="assets/images/tajawalLogoLight.png" alt="تجوَل" class="logo-img" width="100"
                                 height="40">
-                            <!-- <span class="logo-text">تجوَل</span> -->
                         </a>
                         <p>متجرك الإلكتروني الأول للحصول على أحدث الأجهزة الإلكترونية بأفضل الأسعار وأعلى جودة. نوفر لك
                             تجربة تسوق مميزة مع ضمان الرضا الكامل.</p>
@@ -808,8 +715,6 @@
                             <a href="#" aria-label="يوتيوب"><i class="fab fa-youtube" aria-hidden="true"></i></a>
                         </div>
                     </div>
-
-                    <!-- Footer Links 1 -->
                     <div class="footer-column">
                         <h3>روابط سريعة</h3>
                         <ul class="footer-links">
@@ -820,8 +725,6 @@
                             <li><a href="#">من نحن</a></li>
                         </ul>
                     </div>
-
-                    <!-- Footer Links 2 -->
                     <div class="footer-column">
                         <h3>خدمة العملاء</h3>
                         <ul class="footer-links">
@@ -832,8 +735,6 @@
                             <li><a href="#">سياسة الخصوصية</a></li>
                         </ul>
                     </div>
-
-                    <!-- Footer Contact -->
                     <div class="footer-column">
                         <h3>تواصل معنا</h3>
                         <ul class="footer-contact">
@@ -858,8 +759,6 @@
                         </ul>
                     </div>
                 </div>
-
-                <!-- Footer Bottom -->
                 <div class="footer-bottom">
                     <p dir="ltr">2025 &copy;تجوَل </p>
                     <div class="payment-methods">
@@ -871,8 +770,6 @@
                 </div>
             </div>
         </footer>
-
-        <!-- JavaScript -->
         <script src="assets/js/script.js"></script>
 </body>
 

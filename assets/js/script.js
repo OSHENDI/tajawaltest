@@ -1,20 +1,12 @@
-/* ================================================
-   E-Store Landing Page JavaScript
-   Arabic RTL E-Commerce Website
-   ================================================ */
-
 document.addEventListener('DOMContentLoaded', function () {
-    // Initialize all components
     initMobileMenu();
     initCarousel();
     initSmoothScroll();
     initHeaderScroll();
     initProductCards();
+    initScrollSpy();
 });
 
-/* ================================================
-   Mobile Menu Toggle
-   ================================================ */
 function initMobileMenu() {
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const nav = document.querySelector('.nav');
@@ -22,7 +14,6 @@ function initMobileMenu() {
     if (mobileMenuBtn && nav) {
         mobileMenuBtn.addEventListener('click', function () {
             nav.classList.toggle('active');
-            // Toggle icon
             const icon = this.querySelector('i');
             if (icon) {
                 icon.classList.toggle('fa-bars');
@@ -30,7 +21,6 @@ function initMobileMenu() {
             }
         });
 
-        // Close menu when clicking outside
         document.addEventListener('click', function (e) {
             if (!nav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
                 nav.classList.remove('active');
@@ -42,7 +32,6 @@ function initMobileMenu() {
             }
         });
 
-        // Close menu when clicking on a link
         const navLinks = nav.querySelectorAll('.nav-link');
         navLinks.forEach(link => {
             link.addEventListener('click', function () {
@@ -52,9 +41,6 @@ function initMobileMenu() {
     }
 }
 
-/* ================================================
-   Product Carousel
-   ================================================ */
 function initCarousel() {
     const carousels = document.querySelectorAll('.carousel-container');
 
@@ -66,7 +52,6 @@ function initCarousel() {
         if (carousel && prevBtn && nextBtn) {
             const scrollAmount = 300;
 
-            // For RTL, we need to invert the scroll direction
             prevBtn.addEventListener('click', function () {
                 carousel.scrollBy({
                     left: scrollAmount,
@@ -84,9 +69,6 @@ function initCarousel() {
     });
 }
 
-/* ================================================
-   Smooth Scroll for Anchor Links
-   ================================================ */
 function initSmoothScroll() {
     const links = document.querySelectorAll('a[href^="#"]');
 
@@ -99,8 +81,7 @@ function initSmoothScroll() {
                 if (target) {
                     const header = document.querySelector('.header');
                     const headerHeight = header ? header.offsetHeight : 0;
-                    const threshold = 30; // Better threshold for clear section entry
-
+                    const threshold = 30;
                     const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
                     const scrollPosition = targetPosition - headerHeight - threshold;
 
@@ -114,33 +95,20 @@ function initSmoothScroll() {
     });
 }
 
-/* ================================================
-   Header Scroll Effect
-   ================================================ */
 function initHeaderScroll() {
     const header = document.querySelector('.header');
-    let lastScroll = 0;
-
     if (header) {
         window.addEventListener('scroll', function () {
-            const currentScroll = window.pageYOffset;
-
-            if (currentScroll > 100) {
+            if (window.pageYOffset > 100) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
             }
-
-            lastScroll = currentScroll;
         });
     }
 }
 
-/* ================================================
-   Product Cards Interactions
-   ================================================ */
 function initProductCards() {
-    // Wishlist button functionality
     const wishlistBtns = document.querySelectorAll('.btn-wishlist');
 
     wishlistBtns.forEach(btn => {
@@ -153,7 +121,6 @@ function initProductCards() {
                 icon.classList.toggle('fas');
             }
 
-            // Visual feedback
             if (this.classList.contains('active')) {
                 this.style.color = '#FF5722';
                 this.style.borderColor = '#FF5722';
@@ -164,18 +131,10 @@ function initProductCards() {
         });
     });
 
-    // Add to cart button functionality
     const addToCartBtns = document.querySelectorAll('.btn-add-cart');
-
     addToCartBtns.forEach(btn => {
         btn.addEventListener('click', function (e) {
             e.preventDefault();
-
-            // Get product info
-            const card = this.closest('.product-card');
-            const productTitle = card ? card.querySelector('.product-title')?.textContent : '';
-
-            // Visual feedback
             const originalText = this.innerHTML;
             this.innerHTML = '<i class="fas fa-check"></i> تمت الإضافة';
             this.style.backgroundColor = '#45a049';
@@ -185,15 +144,11 @@ function initProductCards() {
                 this.style.backgroundColor = '';
             }, 2000);
 
-            // Update cart badge
             updateCartBadge();
         });
     });
 }
 
-/* ================================================
-   Update Cart Badge
-   ================================================ */
 function updateCartBadge() {
     const cartBadge = document.querySelector('.header-action-btn .badge');
     if (cartBadge) {
@@ -201,7 +156,6 @@ function updateCartBadge() {
         count++;
         cartBadge.textContent = count;
 
-        // Animation
         cartBadge.style.transform = 'scale(1.3)';
         setTimeout(() => {
             cartBadge.style.transform = '';
@@ -209,12 +163,34 @@ function updateCartBadge() {
     }
 }
 
-/* ================================================
-   Newsletter Form Submission
-   ================================================ */
+
+function initScrollSpy() {
+    const sections = document.querySelectorAll('section[id], footer[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        const scrollPosition = window.pageYOffset + 150;
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     const newsletterForm = document.querySelector('.newsletter-form');
-
     if (newsletterForm) {
         newsletterForm.addEventListener('submit', function (e) {
             e.preventDefault();
@@ -222,7 +198,6 @@ document.addEventListener('DOMContentLoaded', function () {
             const submitBtn = this.querySelector('button');
 
             if (emailInput && emailInput.value) {
-                // Visual feedback
                 const originalText = submitBtn.textContent;
                 submitBtn.textContent = 'تم الاشتراك ✓';
                 submitBtn.style.backgroundColor = '#45a049';
@@ -235,14 +210,8 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
-});
 
-/* ================================================
-   Search Functionality
-   ================================================ */
-document.addEventListener('DOMContentLoaded', function () {
     const searchForm = document.querySelector('.search-bar');
-
     if (searchForm) {
         const searchInput = searchForm.querySelector('input');
         const searchBtn = searchForm.querySelector('button');
@@ -252,7 +221,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 e.preventDefault();
                 if (searchInput && searchInput.value.trim()) {
                     console.log('Searching for:', searchInput.value);
-                    // Add search logic here
                 }
             });
         }
@@ -263,27 +231,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     e.preventDefault();
                     if (this.value.trim()) {
                         console.log('Searching for:', this.value);
-                        // Add search logic here
                     }
                 }
             });
         }
     }
-});
-
-/* ================================================
-   Category Cards Hover Effect
-   ================================================ */
-document.addEventListener('DOMContentLoaded', function () {
-    const categoryCards = document.querySelectorAll('.category-card');
-
-    categoryCards.forEach(card => {
-        card.addEventListener('mouseenter', function () {
-            this.style.transform = 'translateY(-0.5rem)';
-        });
-
-        card.addEventListener('mouseleave', function () {
-            this.style.transform = '';
-        });
-    });
 });

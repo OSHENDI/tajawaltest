@@ -7,6 +7,9 @@
    1. CSS Variables
    ================================================ */
 :root {
+    /* Performance: Ensure text visibility during font load */
+    font-display: swap;
+
     /* Colors */
     --color-primary: #4CAF50;
     --color-primary-dark: #45a049;
@@ -761,11 +764,11 @@ select {
     color: var(--color-text-white) !important;
 }
 
-.feature-content h4 {
+.feature-content h3 {
     font-size: var(--font-size-md);
     font-weight: 700;
     color: var(--color-text-dark);
-    margin-bottom: var(--spacing-xs);
+    margin-bottom: var(--spacing-sm);
 }
 
 .feature-content p {
@@ -1286,12 +1289,9 @@ select {
 }
 
 /* Mobile xs 320px */
-@media (max-width: 32rem) {
-
-    .header-main,
-    .container {}
-
-}
+/* @media (max-width: 32rem) {
+   
+} */
 
 /* ================================================
    15. Animations

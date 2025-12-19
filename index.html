@@ -6,11 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="تجوَل">
     <title>تجوَل</title>
+    <!-- Performance Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- LCP Preload -->
+    <link rel="preload" as="image" href="assets/images/mobile.png" fetchpriority="high">
+
     <!-- Google Fonts - Tajawal -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap"
         rel="stylesheet">
 
@@ -45,7 +49,7 @@
                 <!-- Logo -->
                 <a href="#" class="logo">
                     <h1 class="visually-hidden">تجوَل - متجر الإلكترونيات الأول</h1>
-                    <img src="assets/images/tajawalLogo.png" alt="تجوَل" class="logo-img">
+                    <img src="assets/images/tajawalLogo.png" alt="تجوَل" class="logo-img" width="100" height="40">
                     <!-- <span class="logo-text">تجوَل</span> -->
                 </a>
 
@@ -141,7 +145,7 @@
                     <h2 class="section-title">مقترحة لك</h2>
                     <a href="#" class="view-all-link">
                         عرض الكل
-                        <i class="fas fa-arrow-left"></i>
+                        <i class="fa-solid fa-angle-down"></i>
                     </a>
                 </div>
 
@@ -150,7 +154,7 @@
                     <div class="product-card">
                         <span class="product-badge new">جديد</span>
                         <div class="product-image">
-                            <img src="assets/images/s23ultra.png" alt="هاتف سامسونج">
+                            <img src="assets/images/s23ultra.png" alt="هاتف سامسونج" width="100" height="160">
                         </div>
                         <h3 class="product-title">سامسونج جالاكسي S23 Ultra</h3>
                         <div class="product-rating">
@@ -182,7 +186,7 @@
                     <div class="product-card">
                         <span class="product-badge sale">خصم 20%</span>
                         <div class="product-image">
-                            <img src="assets/images/airpodspro.png" alt="سماعات">
+                            <img src="assets/images/airpodspro.png" alt="سماعات" width="166" height="166">
                         </div>
                         <h3 class="product-title">سماعات أبل AirPods Pro</h3>
                         <div class="product-rating">
@@ -213,7 +217,7 @@
                     <!-- Product 3 -->
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="assets/images/series8watch.png" alt="ساعة ذكية">
+                            <img src="assets/images/series8watch.png" alt="ساعة ذكية" width="160" height="160">
                         </div>
                         <h3 class="product-title">ساعة أبل الذكية Series 8</h3>
                         <div class="product-rating">
@@ -244,7 +248,7 @@
                     <div class="product-card">
                         <span class="product-badge new">جديد</span>
                         <div class="product-image">
-                            <img src="assets/images/iphone15promax.png" alt="آيفون">
+                            <img src="assets/images/iphone15promax.png" alt="آيفون" width="160" height="160">
                         </div>
                         <h3 class="product-title">آيفون 15 برو ماكس</h3>
                         <div class="product-rating">
@@ -275,7 +279,7 @@
                     <!-- Product 5 -->
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="assets/images/macbookprom3.png" alt="لابتوب">
+                            <img src="assets/images/macbookprom3.png" alt="لابتوب" width="160" height="160">
                         </div>
                         <h3 class="product-title">لابتوب ماك بوك برو M3</h3>
                         <div class="product-rating">
@@ -306,7 +310,7 @@
                     <div class="product-card">
                         <span class="product-badge sale">خصم 15%</span>
                         <div class="product-image">
-                            <img src="assets/images/sonyWH1000XM5.png" alt="سماعات رأس">
+                            <img src="assets/images/sonyWH1000XM5.png" alt="سماعات رأس" width="160" height="160">
                         </div>
                         <h3 class="product-title">سماعات سوني WH-1000XM5</h3>
                         <div class="product-rating">
@@ -337,7 +341,7 @@
                     <!-- Product 7 -->
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="assets/images/galaxywatch6.png" alt="ساعة ذكية">
+                            <img src="assets/images/galaxywatch6.png" alt="ساعة ذكية" width="160" height="160">
                         </div>
                         <h3 class="product-title">ساعة سامسونج Galaxy Watch 6</h3>
                         <div class="product-rating">
@@ -368,7 +372,7 @@
                     <div class="product-card">
                         <span class="product-badge new">جديد</span>
                         <div class="product-image">
-                            <img src="assets/images/AlphaA7IV.png" alt="كاميرا">
+                            <img src="assets/images/AlphaA7IV.png" alt="كاميرا" width="171" height="160">
                         </div>
                         <h3 class="product-title">كاميرا سوني Alpha A7 IV</h3>
                         <div class="product-rating">
@@ -408,7 +412,7 @@
                     <h2 class="section-title">التصنيفات</h2>
                     <a href="#" class="view-all-link">
                         عرض الكل
-                        <i class="fas fa-arrow-left"></i>
+                        <i class="fa-solid fa-angle-down"></i>
                     </a>
                 </div>
 
@@ -416,7 +420,7 @@
                     <!-- Category 1 -->
                     <div class="category-card">
                         <div class="category-icon">
-                            <img src="assets/images/smartphonescategory.png" alt="هواتف">
+                            <img src="assets/images/smartphonescategory.png" alt="هواتف" width="112" height="78">
                         </div>
                         <h3 class="category-name">الهواتف الذكية</h3>
                     </div>
@@ -424,7 +428,7 @@
                     <!-- Category 2 -->
                     <div class="category-card">
                         <div class="category-icon">
-                            <img src="assets/images/computersCategory.png" alt="كمبيوتر">
+                            <img src="assets/images/computersCategory.png" alt="كمبيوتر" width="112" height="108">
                         </div>
                         <h3 class="category-name">أجهزة الكمبيوتر</h3>
                     </div>
@@ -432,7 +436,7 @@
                     <!-- Category 3 -->
                     <div class="category-card">
                         <div class="category-icon">
-                            <img src="assets/images/tabletsCategory.png" alt="تابلت">
+                            <img src="assets/images/tabletsCategory.png" alt="تابلت" width="112" height="90">
                         </div>
                         <h3 class="category-name">الأجهزة اللوحية</h3>
                     </div>
@@ -440,7 +444,7 @@
                     <!-- Category 4 -->
                     <div class="category-card">
                         <div class="category-icon">
-                            <img src="assets/images/smartwatchCategory.png" alt="ساعات">
+                            <img src="assets/images/smartwatchCategory.png" alt="ساعات" width="112" height="78">
                         </div>
                         <h3 class="category-name">الساعات الذكية</h3>
                     </div>
@@ -448,7 +452,7 @@
                     <!-- Category 5 -->
                     <div class="category-card">
                         <div class="category-icon">
-                            <img src="assets/images/headsetCategory.png" alt="سماعات">
+                            <img src="assets/images/headsetCategory.png" alt="سماعات" width="112" height="112">
                         </div>
                         <h3 class="category-name">السماعات</h3>
                     </div>
@@ -456,7 +460,7 @@
                     <!-- Category 6 -->
                     <div class="category-card">
                         <div class="category-icon">
-                            <img src="assets/images/camerasCategory.png" alt="كاميرات">
+                            <img src="assets/images/camerasCategory.png" alt="كاميرات" width="112" height="84">
                         </div>
                         <h3 class="category-name">الكاميرات</h3>
                     </div>
@@ -487,7 +491,7 @@
                         <div class="product-card">
                             <span class="product-badge sale">الأكثر مبيعاً</span>
                             <div class="product-image">
-                                <img src="assets/images/A54.png" alt="هاتف">
+                                <img src="assets/images/A54.png" alt="هاتف" width="160" height="160">
                             </div>
                             <h3 class="product-title">سامسونج جالاكسي A54</h3>
                             <div class="product-rating">
@@ -517,7 +521,7 @@
                         <!-- Carousel Product 2 -->
                         <div class="product-card">
                             <div class="product-image">
-                                <img src="assets/images/iphone14pro.png" alt="آيفون">
+                                <img src="assets/images/iphone14pro.png" alt="آيفون" width="166" height="166">
                             </div>
                             <h3 class="product-title">آيفون 14 برو</h3>
                             <div class="product-rating">
@@ -549,7 +553,7 @@
                         <div class="product-card">
                             <span class="product-badge new">جديد</span>
                             <div class="product-image">
-                                <img src="assets/images/airpodsmax.png" alt="سماعات">
+                                <img src="assets/images/airpodsmax.png" alt="سماعات" width="127" height="166">
                             </div>
                             <h3 class="product-title">سماعات أبل AirPods Max</h3>
                             <div class="product-rating">
@@ -579,7 +583,7 @@
                         <!-- Carousel Product 4 -->
                         <div class="product-card">
                             <div class="product-image">
-                                <img src="assets/images/applewatchultra.png" alt="ساعة">
+                                <img src="assets/images/applewatchultra.png" alt="ساعة" width="166" height="166">
                             </div>
                             <h3 class="product-title">ساعة أبل Watch Ultra</h3>
                             <div class="product-rating">
@@ -611,7 +615,7 @@
                         <div class="product-card">
                             <span class="product-badge sale">خصم 25%</span>
                             <div class="product-image">
-                                <img src="assets/images/dellLaptop.png" alt="لابتوب">
+                                <img src="assets/images/dellLaptop.png" alt="لابتوب" width="220" height="128">
                             </div>
                             <h3 class="product-title">لابتوب ديل XPS 15</h3>
                             <div class="product-rating">
@@ -791,7 +795,8 @@
                     <div class="footer-about">
                         <!-- Logo -->
                         <a href="#" class="logo">
-                            <img src="assets/images/tajawalLogoLight.png" alt="تجوَل" class="logo-img">
+                            <img src="assets/images/tajawalLogoLight.png" alt="تجوَل" class="logo-img" width="100"
+                                height="40">
                             <!-- <span class="logo-text">تجوَل</span> -->
                         </a>
                         <p>متجرك الإلكتروني الأول للحصول على أحدث الأجهزة الإلكترونية بأفضل الأسعار وأعلى جودة. نوفر لك

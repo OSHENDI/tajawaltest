@@ -1,9 +1,25 @@
 @font-face {
-    font-family: 'Tajawal';
+    font-family: 'Font Awesome 7 Free';
     font-style: normal;
-    font-weight: 275;
+    font-weight: 900;
     font-display: swap;
-    src: url('../fonts/Tajawal-ExtraLight.ttf') format('truetype');
+    src: url('../webfonts/fa-solid-900.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Font Awesome 7 Free';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../webfonts/fa-regular-400.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Font Awesome 7 Brands';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../webfonts/fa-brands-400.woff2') format('woff2');
 }
 
 @font-face {
@@ -409,13 +425,13 @@ select {
 }
 
 .hero-banner.primary {
-    background: url('../images/mobile.png') left/cover no-repeat;
+    background: url('../images/mobile.webp') left/cover no-repeat;
     backdrop-filter: blur(10px);
 }
 
 .hero-banner.secondary {
     color: var(--color-text-dark);
-    background: url('../images/tablet.png') left/cover no-repeat;
+    background: url('../images/tablet.webp') left/cover no-repeat;
     backdrop-filter: blur(10px);
 }
 

@@ -3,7 +3,7 @@
     font-style: normal;
     font-weight: 275;
     font-display: swap;
-    src: url('../fonts/Tajawal-ExtraLight.ttf') format('ttf');
+    src: url('../fonts/Tajawal-ExtraLight.ttf') format('truetype');
 }
 
 @font-face {
@@ -11,7 +11,7 @@
     font-style: normal;
     font-weight: 300;
     font-display: swap;
-    src: url('../fonts/Tajawal-Light.ttf') format('ttf');
+    src: url('../fonts/Tajawal-Light.ttf') format('truetype');
 }
 
 @font-face {
@@ -19,7 +19,7 @@
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: url('../fonts/Tajawal-Regular.ttf') format('ttf');
+    src: url('../fonts/Tajawal-Regular.ttf') format('truetype');
 }
 
 @font-face {
@@ -27,7 +27,7 @@
     font-style: normal;
     font-weight: 500;
     font-display: swap;
-    src: url('../fonts/Tajawal-Medium.ttf') format('ttf');
+    src: url('../fonts/Tajawal-Medium.ttf') format('truetype');
 }
 
 @font-face {
@@ -35,7 +35,7 @@
     font-style: normal;
     font-weight: 600;
     font-display: swap;
-    src: url('../fonts/Tajawal-Bold.ttf') format('ttf');
+    src: url('../fonts/Tajawal-Bold.ttf') format('truetype');
 }
 
 @font-face {
@@ -43,7 +43,7 @@
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: url('../fonts/Tajawal-ExtraBold.ttf') format('ttf');
+    src: url('../fonts/Tajawal-ExtraBold.ttf') format('truetype');
 }
 
 @font-face {
@@ -51,7 +51,7 @@
     font-style: normal;
     font-weight: 800;
     font-display: swap;
-    src: url('../fonts/Tajawal-ExtraBold.ttf') format('ttf');
+    src: url('../fonts/Tajawal-ExtraBold.ttf') format('truetype');
 }
 
 @font-face {
@@ -59,11 +59,10 @@
     font-style: normal;
     font-weight: 900;
     font-display: swap;
-    src: url('../fonts/Tajawal-Black.ttf') format('ttf');
+    src: url('../fonts/Tajawal-Black.ttf') format('truetype');
 }
 
 :root {
-    font-display: swap;
     --color-primary: #4CAF50;
     --color-primary-dark: #45a049;
     --color-primary-light: #81C784;

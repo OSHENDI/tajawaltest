@@ -1,28 +1,4 @@
 @font-face {
-    font-family: 'Font Awesome 7 Free';
-    font-style: normal;
-    font-weight: 900;
-    font-display: swap;
-    src: url('../webfonts/fa-solid-900.woff2') format('woff2');
-}
-
-@font-face {
-    font-family: 'Font Awesome 7 Free';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url('../webfonts/fa-regular-400.woff2') format('woff2');
-}
-
-@font-face {
-    font-family: 'Font Awesome 7 Brands';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url('../webfonts/fa-brands-400.woff2') format('woff2');
-}
-
-@font-face {
     font-family: 'Tajawal';
     font-style: normal;
     font-weight: 300;
@@ -82,6 +58,7 @@
     --color-primary: #4CAF50;
     --color-primary-dark: #45a049;
     --color-primary-light: #81C784;
+    --color-primary-extra-light: #14d476;
     --color-secondary: #FFC107;
     --color-secondary-dark: #FFA000;
     --color-accent: #FF5722;
@@ -106,6 +83,7 @@
     --font-size-xl: 1.25rem;
     --font-size-2xl: 1.5rem;
     --font-size-3xl: 1.875rem;
+    --font-size-3-5xl: 2rem;
     --font-size-4xl: 2.25rem;
     --spacing-xs: 0.25rem;
     --spacing-sm: 0.5rem;
@@ -209,7 +187,7 @@ select {
 }
 
 .header {
-    background-color: rgba(255, 255, 255, 0);
+    background-color: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(var(--radius-lg));
     box-shadow: var(--shadow-xs);
     position: sticky;
@@ -251,6 +229,7 @@ select {
     height: 2rem;
     object-fit: contain;
     aspect-ratio: 32/9;
+
 }
 
 .logo-text {
@@ -263,6 +242,7 @@ select {
     flex: 1;
     max-width: 30rem;
     position: relative;
+    margin: 0 var(--spacing-xs);
 }
 
 .search-bar input {
@@ -296,8 +276,9 @@ select {
 .header-actions {
     display: flex;
     align-items: center;
-    background-color: var(--color-bg-white);
+    background-color: var(--color-bg-light);
     padding: var(--spacing-md) var(--spacing-md);
+    margin: 0 var(--spacing-xs);
     border-radius: var(--radius-full);
     gap: var(--spacing-md);
 }
@@ -306,7 +287,7 @@ select {
     display: flex;
     align-items: center;
     gap: var(--spacing-xs);
-    color: var(--color-text-medium);
+    color: var(--color-text-dark);
     transition: color var(--transition-fast);
     position: relative;
 }
@@ -323,7 +304,7 @@ select {
     position: absolute;
     top: -13px;
     right: -13px;
-    background-color: var(--color-primary);
+    background-color: var(--color-primary-dark);
     color: white;
     font-size: var(--font-size-xs);
     padding: 2.5px 4.7px;
@@ -335,7 +316,6 @@ select {
 
 .fa-solid.fa-heart.icon,
 .fa-solid.fa-shopping-cart.icon {
-    color: gray;
     -webkit-text-stroke-width: 0.5px;
     -webkit-text-stroke-color: rgba(0, 0, 0, 0.15);
 }
@@ -510,11 +490,52 @@ select {
     display: flex;
     flex-direction: column;
     height: 100%;
+    overflow: hidden;
+    /* Ensure compare button slides from outside */
 }
 
 .product-card:hover {
     box-shadow: var(--shadow-green);
     transform: translateY(-0.25rem);
+}
+
+/* Compare Button */
+.btn-compare {
+    position: absolute;
+    top: var(--spacing-md);
+    right: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: var(--color-bg-white);
+    border: 0.0625rem solid var(--color-border-light);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-dark);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    transform: translateX(100%);
+    z-index: 10;
+    box-shadow: var(--shadow-sm);
+}
+
+.product-card:hover .btn-compare {
+    opacity: 1;
+    transform: translateX(-0.75rem);
+}
+
+.btn-compare:hover {
+    color: white;
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.btn-compare.active {
+    background-color: var(--color-text-dark);
+    color: var(--color-text-white);
+    border-color: var(--color-secondary);
 }
 
 .product-badge {
@@ -618,21 +639,25 @@ select {
 
 .btn-add-cart {
     flex: 1;
+    height: 2.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: var(--spacing-sm);
     background-color: var(--color-primary);
     color: white;
-    padding: var(--spacing-sm) var(--spacing-md);
+    padding: 0 var(--spacing-md);
     border-radius: var(--radius-full);
     font-size: var(--font-size-sm);
-    font-weight: 600;
-    transition: background-color var(--transition-fast);
+    font-weight: 700;
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-sm);
 }
 
 .btn-add-cart:hover {
     background-color: var(--color-primary-dark);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
 }
 
 .btn-wishlist {
@@ -754,11 +779,11 @@ select {
 }
 
 .carousel-btn.prev {
-    right: -1.25rem;
+    right: 0;
 }
 
 .carousel-btn.next {
-    left: -1.25rem;
+    left: 0;
 }
 
 
@@ -776,16 +801,18 @@ select {
 .feature-item {
     display: flex;
     align-items: center;
-    gap: var(--spacing-md);
+    gap: var(--spacing-xs);
+    background: url('../images/greenbg_2.png') no-repeat center center;
     background-color: var(--color-bg-white);
+    background-size: cover;
     padding: var(--spacing-lg);
     border-radius: var(--radius-lg);
 }
 
 .feature-icon {
-    width: 3.5rem;
-    height: 3.5rem;
-    background-color: var(--color-primary-light);
+    width: 4.5rem;
+    height: 4.5rem;
+    /* background-color: var(--color-primary-dark); */
     border-radius: var(--radius-full);
     display: flex;
     align-items: center;
@@ -796,7 +823,13 @@ select {
 }
 
 .feature-icon i {
-    color: var(--color-text-white) !important;
+    color: var(--color-text-dark) !important;
+}
+.feature-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    scale: 1.25;
 }
 
 .feature-content h3 {
@@ -823,20 +856,24 @@ select {
     align-items: center;
 }
 
-.why-us-text h2 {
-    font-size: var(--font-size-2xl);
+.why-us-text {
+    align-self: flex-start;
+}
+
+.why-us-text h1 {
+    font-size: var(--font-size-4xl);
     font-weight: 700;
     margin-bottom: var(--spacing-lg);
     color: var(--color-text-dark);
 }
 
-.why-us-text h2 span {
+.why-us-text h1 span {
     color: var(--color-primary);
 }
 
 .why-us-features {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: var(--spacing-md);
 }
 
@@ -853,7 +890,7 @@ select {
 .why-us-feature .icon {
     width: 2rem;
     height: 2rem;
-    background-color: var(--color-primary-light);
+    background-color: var(--color-primary-dark);
     border-radius: var(--radius-full);
     display: flex;
     align-items: center;
@@ -862,7 +899,7 @@ select {
     flex-shrink: 0;
 }
 
-.why-us-feature h5 {
+.why-us-feature h3 {
     font-size: var(--font-size-sm);
     font-weight: 600;
     margin-bottom: var(--spacing-xs);
@@ -897,7 +934,7 @@ select {
 
 
 .newsletter {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    background: var(--color-primary-dark);
     color: white;
     padding: var(--spacing-2xl) 0;
 }
@@ -977,7 +1014,7 @@ select {
 .footer-about p {
     font-size: var(--font-size-sm);
     color: #aaaaaa;
-    line-height: 1.8;
+    line-height: 1.2;
     margin-bottom: var(--spacing-md);
 }
 
@@ -1032,7 +1069,7 @@ select {
 }
 
 .footer-contact .icon {
-    color: var(--color-primary);
+    color: var(--color-primary-extra-light);
     margin-top: 0.125rem;
 }
 
@@ -1052,18 +1089,41 @@ select {
 .payment-methods {
     display: flex;
     gap: var(--spacing-sm);
+    align-items: center;
 }
 
-.payment-methods {
-    height: 1.5rem;
-    opacity: 0.8;
+.payment-methods i {
+    background-color: #ffffff;
+    border-radius: 4px;
+    /* Matches the card's rounded corners */
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    /* Set a fixed width to ensure consistency */
+    height: 1.7rem;
+    font-size: var(--font-size-3-5xl);
+    /* Set a height that matches the card aspect ratio */
 }
 
+/* Remove the square background that was bleeding out */
 .fa-cc-visa:before,
 .fa-cc-mastercard:before,
 .fa-cc-paypal:before,
 .fa-cc-apple-pay:before {
-    background-color: white;
+    background-color: transparent !important;
+}
+
+.payment-methods i:nth-of-type(2) {
+    background-color: transparent;
+    border-radius: var(--radius-sm);
+}
+
+.fa-cc-mastercard:before {
+    background: url('../images/mastercard.png') no-repeat center center;
+    border-radius: var(--radius-sm);
+    background-size: cover;
     line-height: 0.8;
 }
 
@@ -1121,6 +1181,7 @@ select {
 
     .features-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
     }
 
     .footer-grid {
@@ -1150,6 +1211,12 @@ select {
 
     .mobile-menu-btn {
         display: block;
+        background-color: rgba(255, 255, 255, 0.75);
+        border-radius: var(--radius-full);
+    }
+
+    .mobile-menu-btn:hover {
+        color: var(--color-primary);
     }
 
     .nav {
@@ -1256,6 +1323,12 @@ select {
         gap: var(--spacing-md);
     }
 
+    .btn-add-cart {
+        font-size: var(--font-size-xs);
+        padding: 0 var(--spacing-sm);
+        gap: var(--spacing-xs);
+    }
+
     .product-image {
         height: 8rem;
     }
@@ -1266,6 +1339,7 @@ select {
 
     .features-grid {
         grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
     }
 
     .feature-item {
@@ -1303,8 +1377,12 @@ select {
         min-width: calc(50% - var(--spacing-md));
     }
 
-    .carousel-btn {
-        display: none;
+    .carousel-btn.prev {
+        right: 0;
+    }
+
+    .carousel-btn.next {
+        left: 0;
     }
 }
 

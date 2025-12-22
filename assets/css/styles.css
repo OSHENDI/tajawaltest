@@ -307,7 +307,7 @@ select {
     background-color: var(--color-primary-dark);
     color: white;
     font-size: var(--font-size-xs);
-    padding: 2.5px 4.7px;
+    padding: 3px 6px;
     border-radius: var(--radius-xl);
     line-height: 1;
     text-align: center;
@@ -801,7 +801,7 @@ select {
 .feature-item {
     display: flex;
     align-items: center;
-    gap: var(--spacing-xs);
+    gap: var(--spacing-md);
     background: url('../images/greenbg_2.png') no-repeat center center;
     background-color: var(--color-bg-white);
     background-size: cover;

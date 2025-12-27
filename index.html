@@ -31,22 +31,80 @@
                     </button>
                 </div>
                 <div class="header-actions">
-                    <a href="#" class="header-action-btn" aria-label="المفضلة">
+                    <div class="header-action-btn" data-dropdown="wishlist" aria-label="المفضلة">
                         <i class="fa-solid fa-heart icon" aria-hidden="true"></i>
                         <span class="badge">0</span>
-                    </a>
-                    <a href="#" class="header-action-btn" aria-label="المقارنة">
+                        <div class="action-dropdown">
+                            <div class="dropdown-header">
+                                <span class="dropdown-title">المفضلة</span>
+                            </div>
+                            <div class="dropdown-items">
+                                <div class="dropdown-empty">لا توجد عناصر</div>
+                            </div>
+                            <div class="dropdown-footer">
+                                <div class="dropdown-total">
+                                    <span>المجموع:</span>
+                                    <span class="total-price">₪0</span>
+                                </div>
+                                <button class="dropdown-checkout-btn">عرض المفضلة</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-action-btn" data-dropdown="compare" aria-label="المقارنة">
                         <i class="fa-solid fa-arrow-right-arrow-left icon" aria-hidden="true"></i>
                         <span class="badge">0</span>
-                    </a>
-                    <a href="#" class="header-action-btn" aria-label="سلة التسوق">
+                        <div class="action-dropdown">
+                            <div class="dropdown-header">
+                                <span class="dropdown-title">المقارنة</span>
+                            </div>
+                            <div class="dropdown-items">
+                                <div class="dropdown-empty">لا توجد عناصر</div>
+                            </div>
+                            <div class="dropdown-footer">
+                                <button class="dropdown-checkout-btn">مقارنة المنتجات</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-action-btn" data-dropdown="cart" aria-label="سلة التسوق">
                         <i class="fa-solid fa-shopping-cart icon" aria-hidden="true"></i>
                         <span class="badge">0</span>
-                    </a>
-                    <a href="#" class="header-action-btn" aria-label="حسابي">
+                        <div class="action-dropdown">
+                            <div class="dropdown-header">
+                                <span class="dropdown-title">سلة التسوق</span>
+                            </div>
+                            <div class="dropdown-items">
+                                <div class="dropdown-empty">السلة فارغة</div>
+                            </div>
+                            <div class="dropdown-footer">
+                                <div class="dropdown-total">
+                                    <span>المجموع:</span>
+                                    <span class="total-price">₪0</span>
+                                </div>
+                                <button class="dropdown-checkout-btn">متابعة الدفع</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-action-btn" data-dropdown="account" aria-label="حسابي">
                         <i class="fas fa-user icon" aria-hidden="true"></i>
                         <span>حسابي</span>
-                    </a>
+                        <div class="action-dropdown account-dropdown">
+                            <div class="dropdown-header">
+                                <span class="dropdown-title">حسابي</span>
+                            </div>
+                            <div class="account-guest">
+                                <div class="account-icon">
+                                    <i class="fas fa-user-circle"></i>
+                                </div>
+                                <p class="account-message">
+                                    أنت غير مسجل الدخول. سجّل الآن للوصول إلى طلباتك، قائمة المفضلة، والعروض الحصرية.
+                                </p>
+                                <div class="account-actions">
+                                    <button class="btn-login">تسجيل الدخول</button>
+                                    <button class="btn-signup">إنشاء حساب</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <button class="mobile-menu-btn" aria-label="قائمة التنقل">
                     <i class="fas fa-bars" aria-hidden="true"></i>

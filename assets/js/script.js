@@ -1,1 +1,340 @@
-document.addEventListener('DOMContentLoaded', function () { initMobileMenu(); initCarousel(); initSmoothScroll(); initHeaderScroll(); initProductCards(); initCompareButtons(); initScrollSpy() }); function initMobileMenu() { const b = document.querySelector('.mobile-menu-btn'), n = document.querySelector('.nav'); if (b && n) { b.addEventListener('click', function () { n.classList.toggle('active'); const i = this.querySelector('i'); if (i) { i.classList.toggle('fa-bars'); i.classList.toggle('fa-times') } }); document.addEventListener('click', function (e) { if (!n.contains(e.target) && !b.contains(e.target)) { n.classList.remove('active'); const i = b.querySelector('i'); if (i) { i.classList.add('fa-bars'); i.classList.remove('fa-times') } } }); const l = n.querySelectorAll('.nav-link'); l.forEach(link => { link.addEventListener('click', function () { n.classList.remove('active') }) }) } } function initCarousel() { const c = document.querySelectorAll('.carousel-container'); c.forEach(container => { const r = container.querySelector('.carousel'), p = container.querySelector('.carousel-btn.prev'), n = container.querySelector('.carousel-btn.next'); if (r && p && n) { const s = 300; p.addEventListener('click', function () { r.scrollBy({ left: s, behavior: 'smooth' }) }); n.addEventListener('click', function () { r.scrollBy({ left: -s, behavior: 'smooth' }) }) } }) } function initSmoothScroll() { const l = document.querySelectorAll('a[href^="#"]'); l.forEach(link => { link.addEventListener('click', function (e) { const h = this.getAttribute('href'); if (h !== '#' && h.startsWith('#')) { e.preventDefault(); const t = document.querySelector(h); if (t) { const r = document.querySelector('.header'), hH = r ? r.offsetHeight : 0, sh = 30, tP = t.getBoundingClientRect().top + window.pageYOffset, sP = tP - hH - sh; window.scrollTo({ top: sP, behavior: 'smooth' }) } } }) }) } function initHeaderScroll() { const h = document.querySelector('.header'); if (h) { window.addEventListener('scroll', function () { if (window.pageYOffset > 100) { h.classList.add('scrolled') } else { h.classList.remove('scrolled') } }) } } function initProductCards() { const w = document.querySelectorAll('.btn-wishlist'); w.forEach(btn => { btn.addEventListener('click', function (e) { e.preventDefault(); this.classList.toggle('active'); const i = this.querySelector('i'); const isActive = this.classList.contains('active'); if (i) { i.classList.toggle('far'); i.classList.toggle('fas') } if (isActive) { this.style.color = '#FF5722'; this.style.borderColor = '#FF5722' } else { this.style.color = ''; this.style.borderColor = '' } updateWishlistBadge(isActive) }) }); const a = document.querySelectorAll('.btn-add-cart'); a.forEach(btn => { btn.addEventListener('click', function (e) { e.preventDefault(); const oT = this.innerHTML; this.innerHTML = '<i class="fas fa-check"></i> تمت الإضافة'; this.style.backgroundColor = '#45a049'; setTimeout(() => { this.innerHTML = oT; this.style.backgroundColor = '' }, 2000); updateCartBadge() }) }) } function initCompareButtons() { const c = document.querySelectorAll('.btn-compare'); c.forEach(btn => { btn.addEventListener('click', function (e) { e.preventDefault(); this.classList.toggle('active'); const active = this.classList.contains('active'); updateCompareBadge(active) }) }) } function updateWishlistBadge(isActive) { const b = document.querySelectorAll('.header-action-btn .badge')[0]; if (b) { let c = parseInt(b.textContent) || 0; if (isActive) c++; else if (c > 0) c--; b.textContent = c; b.style.transform = 'scale(1.3)'; setTimeout(() => { b.style.transform = '' }, 200) } } function updateCompareBadge(isActive) { const b = document.querySelectorAll('.header-action-btn .badge')[1]; if (b) { let c = parseInt(b.textContent) || 0; if (isActive) c++; else if (c > 0) c--; b.textContent = c; b.style.transform = 'scale(1.3)'; setTimeout(() => { b.style.transform = '' }, 200) } } function updateCartBadge() { const b = document.querySelectorAll('.header-action-btn .badge')[2]; if (b) { let c = parseInt(b.textContent) || 0; c++; b.textContent = c; b.style.transform = 'scale(1.3)'; setTimeout(() => { b.style.transform = '' }, 200) } } function initScrollSpy() { const s = document.querySelectorAll('section[id], footer[id]'), n = document.querySelectorAll('.nav-link'); window.addEventListener('scroll', () => { let c = ''; const sP = window.pageYOffset + 150; s.forEach(sec => { const t = sec.offsetTop, h = sec.offsetHeight; if (sP >= t && sP < t + h) { c = sec.getAttribute('id') } }); n.forEach(link => { link.classList.remove('active'); if (link.getAttribute('href') === `#${c}`) { link.classList.add('active') } }) }) } document.addEventListener('DOMContentLoaded', function () { const n = document.querySelector('.newsletter-form'); if (n) { n.addEventListener('submit', function (e) { e.preventDefault(); const i = this.querySelector('input[type="email"]'), b = this.querySelector('button'); if (i && i.value) { const oT = b.textContent; b.textContent = 'تم الاشتراك!'; b.style.backgroundColor = '#45a049'; i.value = ''; setTimeout(() => { b.textContent = oT; b.style.backgroundColor = '' }, 3000) } }) } const s = document.querySelector('.search-bar'); if (s) { const i = s.querySelector('input'), b = s.querySelector('button'); if (b) { b.addEventListener('click', function (e) { e.preventDefault(); if (i && i.value.trim()) { console.log('Searching for:', i.value) } }) } if (i) { i.addEventListener('keypress', function (e) { if (e.key === 'Enter') { e.preventDefault(); if (this.value.trim()) { console.log('Searching for:', this.value) } } }) } } });
+const store = {
+    cart: [],
+    wishlist: [],
+    compare: []
+};
+
+document.addEventListener('DOMContentLoaded', function () {
+    initMobileMenu();
+    initCarousel();
+    initSmoothScroll();
+    initHeaderScroll();
+    initProductCards();
+    initCompareButtons();
+    initScrollSpy();
+    initNewsletter();
+    initSearch();
+});
+
+function initMobileMenu() {
+    const btn = document.querySelector('.mobile-menu-btn');
+    const nav = document.querySelector('.nav');
+    if (!btn || !nav) return;
+
+    btn.addEventListener('click', function () {
+        nav.classList.toggle('active');
+        const icon = this.querySelector('i');
+        if (icon) {
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        }
+    });
+
+    document.addEventListener('click', function (e) {
+        if (!nav.contains(e.target) && !btn.contains(e.target)) {
+            nav.classList.remove('active');
+            const icon = btn.querySelector('i');
+            if (icon) {
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+            }
+        }
+    });
+}
+
+function initCarousel() {
+    document.querySelectorAll('.carousel-container').forEach(container => {
+        const carousel = container.querySelector('.carousel');
+        const prev = container.querySelector('.carousel-btn.prev');
+        const next = container.querySelector('.carousel-btn.next');
+        if (!carousel || !prev || !next) return;
+
+        const scrollAmount = 300;
+        prev.addEventListener('click', () => carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' }));
+        next.addEventListener('click', () => carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' }));
+    });
+}
+
+function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href !== '#' && href.startsWith('#')) {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    const header = document.querySelector('.header');
+                    const offset = header ? header.offsetHeight + 30 : 30;
+                    window.scrollTo({
+                        top: target.getBoundingClientRect().top + window.pageYOffset - offset,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+}
+
+function initHeaderScroll() {
+    const header = document.querySelector('.header');
+    if (!header) return;
+
+    window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.pageYOffset > 100);
+    });
+}
+
+function initProductCards() {
+    document.querySelectorAll('.btn-wishlist').forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            const card = this.closest('.product-card');
+            const product = getProductData(card);
+            const isActive = this.classList.toggle('active');
+            const icon = this.querySelector('i');
+
+            if (icon) {
+                icon.classList.toggle('far', !isActive);
+                icon.classList.toggle('fas', isActive);
+            }
+
+            this.style.color = isActive ? '#FF5722' : '';
+            this.style.borderColor = isActive ? '#FF5722' : '';
+
+            if (isActive) {
+                addToStore('wishlist', product);
+            } else {
+                removeFromStore('wishlist', product.id);
+            }
+        });
+    });
+
+    document.querySelectorAll('.btn-add-cart').forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            const card = this.closest('.product-card');
+            const product = getProductData(card);
+            const originalHTML = this.innerHTML;
+
+            this.innerHTML = '<i class="fas fa-check"></i> تمت الإضافة';
+            this.style.backgroundColor = '#45a049';
+
+            addToStore('cart', product);
+
+            setTimeout(() => {
+                this.innerHTML = originalHTML;
+                this.style.backgroundColor = '';
+            }, 1500);
+        });
+    });
+}
+
+function initCompareButtons() {
+    document.querySelectorAll('.btn-compare').forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            const card = this.closest('.product-card');
+            const product = getProductData(card);
+            const isActive = this.classList.toggle('active');
+
+            if (isActive) {
+                addToStore('compare', product);
+            } else {
+                removeFromStore('compare', product.id);
+            }
+        });
+    });
+}
+
+function getProductData(card) {
+    const img = card.querySelector('.product-image img');
+    const title = card.querySelector('.product-title');
+    const price = card.querySelector('.product-price .current');
+
+    return {
+        id: title ? title.textContent.trim() : Date.now().toString(),
+        name: title ? title.textContent.trim() : 'منتج',
+        image: img ? img.src : '',
+        price: price ? parsePrice(price.textContent) : 0
+    };
+}
+
+function parsePrice(priceStr) {
+    return parseInt(priceStr.replace(/[^\d]/g, '')) || 0;
+}
+
+function addToStore(type, product) {
+    const existing = store[type].find(item => item.id === product.id);
+    if (existing) {
+        existing.qty = (existing.qty || 1) + 1;
+    } else {
+        store[type].push({ ...product, qty: 1 });
+    }
+    updateDropdown(type);
+}
+
+function removeFromStore(type, productId) {
+    store[type] = store[type].filter(item => item.id !== productId);
+    updateDropdown(type);
+}
+
+function updateDropdown(type) {
+    const items = store[type];
+    const dropdownMap = { wishlist: 0, compare: 1, cart: 2 };
+    const actionBtns = document.querySelectorAll('.header-action-btn[data-dropdown]');
+    const btn = actionBtns[dropdownMap[type]];
+
+    if (!btn) return;
+
+    const badge = btn.querySelector('.badge');
+    const itemsContainer = btn.querySelector('.dropdown-items');
+    const totalEl = btn.querySelector('.total-price');
+    const emptyEl = btn.querySelector('.dropdown-empty');
+
+    const totalQty = items.reduce((sum, item) => sum + (item.qty || 1), 0);
+    if (badge) {
+        badge.textContent = totalQty;
+        badge.style.transform = 'scale(1.3)';
+        setTimeout(() => badge.style.transform = '', 200);
+    }
+
+    if (itemsContainer) {
+        itemsContainer.innerHTML = '';
+
+        if (items.length === 0) {
+            const emptyText = type === 'cart' ? 'السلة فارغة' : 'لا توجد عناصر';
+            itemsContainer.innerHTML = `<div class="dropdown-empty">${emptyText}</div>`;
+        } else {
+            items.forEach(item => {
+                const itemEl = document.createElement('div');
+                itemEl.className = 'dropdown-item';
+                itemEl.innerHTML = `<div class="dropdown-item-image"><img src="${item.image}" alt="${item.name}"></div><div class="dropdown-item-info"><div class="dropdown-item-name">${item.name}</div><div class="dropdown-item-details">${item.qty > 1 ? `<span class="dropdown-item-qty">x${item.qty}</span>` : ''}<span class="dropdown-item-price">₪${(item.price * (item.qty || 1)).toLocaleString()}</span></div></div><button class="dropdown-item-remove" data-id="${item.id}" data-type="${type}"><i class="fas fa-times"></i></button>`;
+                itemsContainer.appendChild(itemEl);
+            });
+
+            itemsContainer.querySelectorAll('.dropdown-item-remove').forEach(removeBtn => {
+                removeBtn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+
+                    const id = this.dataset.id;
+                    const itemType = this.dataset.type;
+                    const itemEl = this.closest('.dropdown-item');
+                    const parentBtn = this.closest('.header-action-btn');
+
+                    parentBtn.classList.add('dropdown-open');
+
+                    itemEl.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+                    itemEl.style.opacity = '0';
+                    itemEl.style.transform = 'translateX(20px)';
+
+                    setTimeout(() => {
+                        removeFromStore(itemType, id);
+
+                        parentBtn.classList.add('dropdown-open');
+
+                        parentBtn.addEventListener('mouseleave', function handler() {
+                            parentBtn.classList.remove('dropdown-open');
+                            parentBtn.removeEventListener('mouseleave', handler);
+                        });
+                    }, 200);
+
+                    if (itemType === 'wishlist') {
+                        document.querySelectorAll('.btn-wishlist.active').forEach(btn => {
+                            const card = btn.closest('.product-card');
+                            const product = getProductData(card);
+                            if (product.id === id) {
+                                btn.classList.remove('active');
+                                const icon = btn.querySelector('i');
+                                if (icon) {
+                                    icon.classList.add('far');
+                                    icon.classList.remove('fas');
+                                }
+                                btn.style.color = '';
+                                btn.style.borderColor = '';
+                            }
+                        });
+                    } else if (itemType === 'compare') {
+                        document.querySelectorAll('.btn-compare.active').forEach(btn => {
+                            const card = btn.closest('.product-card');
+                            const product = getProductData(card);
+                            if (product.id === id) {
+                                btn.classList.remove('active');
+                            }
+                        });
+                    }
+                });
+            });
+        }
+    }
+
+    if (totalEl) {
+        const total = items.reduce((sum, item) => sum + (item.price * (item.qty || 1)), 0);
+        totalEl.textContent = `₪${total.toLocaleString()}`;
+    }
+}
+
+function initScrollSpy() {
+    const sections = document.querySelectorAll('section[id], footer[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        const scrollPos = window.pageYOffset + 150;
+
+        sections.forEach(section => {
+            if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
+        });
+    });
+}
+
+function initNewsletter() {
+    const form = document.querySelector('.newsletter-form');
+    if (!form) return;
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const input = this.querySelector('input[type="email"]');
+        const btn = this.querySelector('button');
+
+        if (input && input.value) {
+            const originalText = btn.textContent;
+            btn.textContent = 'تم الاشتراك!';
+            btn.style.backgroundColor = '#45a049';
+            input.value = '';
+
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.style.backgroundColor = '';
+            }, 3000);
+        }
+    });
+}
+
+function initSearch() {
+    const searchBar = document.querySelector('.search-bar');
+    if (!searchBar) return;
+
+    const input = searchBar.querySelector('input');
+    const btn = searchBar.querySelector('button');
+
+    const handleSearch = () => {
+        if (input && input.value.trim()) {
+            console.log('Searching for:', input.value);
+        }
+    };
+
+    if (btn) btn.addEventListener('click', handleSearch);
+    if (input) input.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            handleSearch();
+        }
+    });
+}

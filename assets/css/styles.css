@@ -1674,6 +1674,11 @@ select {
 
 
 @media (max-width: 62rem) {
+    
+    .search-bar:focus-within {
+        max-width: 100%;
+    }
+
     .products-grid {
         grid-template-columns: repeat(3, 1fr);
     }

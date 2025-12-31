@@ -96,7 +96,8 @@
                                     <i class="fas fa-user-circle"></i>
                                 </div>
                                 <p class="account-message">
-                                    أنت غير مسجل الدخول. سجّل الآن للوصول إلى طلباتك، قائمة المفضلة، والعروض الحصرية.
+                                    أنت غير مسجل الدخول. سجّل الآن للحصول على الميزات المتقدمة مثل قائمة المفضلة
+                                    والمقارنة.
                                 </p>
                                 <div class="account-actions">
                                     <button class="btn-login">تسجيل الدخول</button>
@@ -114,7 +115,7 @@
         <nav class="nav">
             <div class="container">
                 <ul class="nav-list">
-                    <li><a href="#" class="nav-link active">الرئيسية</a></li>
+                    <li><a href="#" class="nav-link">العروض</a></li>
                     <li><a href="#products" class="nav-link">المنتجات</a></li>
                     <li><a href="#categories" class="nav-link">التصنيفات</a></li>
                     <li><a href="#bestsellers" class="nav-link">الأكثر مبيعاً</a></li>
@@ -139,6 +140,10 @@
                                 <span class="old-price">₪2,499</span>
                             </div>
                         </div>
+                        <a href="#products" class="hero-cta">
+                            <span>اكتشف العروض</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
                     </div>
                     <div class="hero-banner secondary">
                         <div class="hero-overlay"></div>
@@ -151,20 +156,24 @@
                                 <span class="old-price">₪4,299</span>
                             </div>
                         </div>
+                        <a href="#categories" class="hero-cta">
+                            <span>تسوّق الآن</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
         <section id="products" class="section">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header reveal">
                     <h2 class="section-title">مقترحة لك</h2>
                     <a href="#" class="view-all-link">
                         عرض الكل
                         <i class="fa-solid fa-angle-down"></i>
                     </a>
                 </div>
-                <div class="products-grid">
+                <div class="products-grid reveal-children">
                     <div class="product-card">
                         <span class="product-badge new">جديد</span>
                         <div class="product-image">
@@ -435,7 +444,7 @@
                         <i class="fa-solid fa-angle-down"></i>
                     </a>
                 </div>
-                <div class="categories-grid">
+                <div class="categories-grid reveal-children">
                     <div class="category-card">
                         <div class="category-icon">
                             <img src="assets/images/smartphonescategory.webp" alt="هواتف" width="112" height="78">
@@ -659,7 +668,7 @@
         </section>
         <section class="features">
             <div class="container">
-                <div class="features-grid">
+                <div class="features-grid reveal-children">
                     <div class="feature-item">
                         <div class="feature-icon">
                             <img src="assets/images/fast_shipping.png" width="100" height="100" alt="fast_shipping">
@@ -702,50 +711,15 @@
         <section id="about" class="section why-us">
             <div class="container">
                 <div class="why-us-content">
-                    <div class="why-us-text">
-                        <h1>لماذا يختار عملاؤنا
-                            <span>تجوّل</span>
-                            ؟
-                        </h1>
-                        <h2></h2>
-                        <div class="why-us-features">
-                            <div class="why-us-feature">
-                                <div class="icon">
-                                    <i class="fas fa-check" aria-hidden="true"></i>
-                                </div>
-                                <div>
-                                    <h3>منتجات أصلية</h3>
-                                    <p>ضمان 100% على جميع المنتجات</p>
-                                </div>
-                            </div>
-                            <div class="why-us-feature">
-                                <div class="icon">
-                                    <i class="fas fa-check" aria-hidden="true"></i>
-                                </div>
-                                <div>
-                                    <h3>أسعار تنافسية</h3>
-                                    <p>أفضل الأسعار في السوق</p>
-                                </div>
-                            </div>
-                            <div class="why-us-feature">
-                                <div class="icon">
-                                    <i class="fas fa-check" aria-hidden="true"></i>
-                                </div>
-                                <div>
-                                    <h3>توصيل سريع</h3>
-                                    <p>توصيل خلال 24-48 ساعة</p>
-                                </div>
-                            </div>
-                            <div class="why-us-feature">
-                                <div class="icon">
-                                    <i class="fas fa-check" aria-hidden="true"></i>
-                                </div>
-                                <div>
-                                    <h3>خدمة مميزة</h3>
-                                    <p>دعم فني محترف</p>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="why-us-text reveal">
+                        <h2>لماذا يختار عملاؤنا
+                            <span>تجوّل</span>؟
+                        </h2>
+                        <p class="why-us-description">
+                            نحن في تجوّل نؤمن بأن التسوق الإلكتروني يجب أن يكون تجربة ممتعة وآمنة. نوفر لك منتجات أصلية
+                            100% مع ضمان الجودة، وأسعار تنافسية لا تُقارن، وتوصيل سريع خلال 24-48 ساعة لباب منزلك. فريق
+                            دعم العملاء لدينا متاح دائماً لمساعدتك في أي استفسار.
+                        </p>
                     </div>
                     <div class="why-us-images">
                         <div class="why-us-image">
@@ -799,7 +773,7 @@
                     <div class="footer-column">
                         <h3>روابط سريعة</h3>
                         <ul class="footer-links">
-                            <li><a href="#">الرئيسية</a></li>
+                            <li><a href="#">العروض</a></li>
                             <li><a href="#products">المنتجات</a></li>
                             <li><a href="#categories">التصنيفات</a></li>
                             <li><a href="#offers">العروض</a></li>

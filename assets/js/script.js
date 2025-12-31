@@ -14,7 +14,27 @@ document.addEventListener('DOMContentLoaded', function () {
     initScrollSpy();
     initNewsletter();
     initSearch();
+    initScrollReveal();
 });
+
+function initScrollReveal() {
+    const revealElements = document.querySelectorAll('.reveal, .reveal-children');
+
+    if (!revealElements.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    revealElements.forEach(el => observer.observe(el));
+}
 
 function initMobileMenu() {
     const btn = document.querySelector('.mobile-menu-btn');
@@ -277,21 +297,44 @@ function updateDropdown(type) {
 function initScrollSpy() {
     const sections = document.querySelectorAll('section[id], footer[id]');
     const navLinks = document.querySelectorAll('.nav-link');
+    const header = document.querySelector('.header');
 
-    window.addEventListener('scroll', () => {
+    if (!sections.length || !navLinks.length) return;
+
+    function updateActiveNav() {
+        const headerHeight = header ? header.offsetHeight : 0;
+        const scrollPos = window.scrollY + headerHeight + 100;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+
         let current = '';
-        const scrollPos = window.pageYOffset + 150;
 
-        sections.forEach(section => {
-            if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
-                current = section.getAttribute('id');
-            }
-        });
+        if (window.scrollY + windowHeight >= documentHeight - 50) {
+            const lastSection = sections[sections.length - 1];
+            current = lastSection.getAttribute('id');
+        } else {
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+        }
 
         navLinks.forEach(link => {
-            link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
+            const href = link.getAttribute('href');
+            if (href === '#' || href === '#offers') {
+                link.classList.toggle('active', current === '' && window.scrollY < 100);
+            } else {
+                link.classList.toggle('active', href === `#${current}`);
+            }
         });
-    });
+    }
+
+    window.addEventListener('scroll', updateActiveNav, { passive: true });
+    updateActiveNav();
 }
 
 function initNewsletter() {

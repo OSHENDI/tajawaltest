@@ -302,7 +302,7 @@ select {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0 var(--spacing-lg) 0 var(--spacing-lg);
+    margin: auto;
 
 }
 
@@ -1674,7 +1674,7 @@ select {
 
 
 @media (max-width: 62rem) {
-    
+
     .search-bar:focus-within {
         max-width: 100%;
     }

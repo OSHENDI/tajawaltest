@@ -349,7 +349,7 @@ function initNewsletter() {
         if (input && input.value) {
             const originalText = btn.textContent;
             btn.textContent = 'تم الاشتراك!';
-            btn.style.backgroundColor = '#45a049';
+            btn.style.backgroundColor = '#ffffffff';
             input.value = '';
 
             setTimeout(() => {

@@ -227,6 +227,8 @@ button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    line-height: normal;
+    /* Restore natural height for centering */
 }
 
 input,
@@ -411,6 +413,7 @@ select {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    line-height: normal;
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
     transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
@@ -710,6 +713,7 @@ select {
     font-weight: 600;
     color: var(--color-text-dark);
     position: relative;
+    line-height: normal;
 }
 
 .nav-link:hover,
@@ -868,6 +872,7 @@ select {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    line-height: normal;
     background-color: var(--color-secondary);
     color: var(--color-text-dark);
     padding: var(--spacing-xs) var(--spacing-sm);
@@ -1071,6 +1076,7 @@ select {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    line-height: normal;
 }
 
 
@@ -1770,6 +1776,7 @@ select {
     .nav-link {
         padding: var(--spacing-md);
         border-bottom: 0.0625rem solid var(--color-border-light);
+        width: 100%;
     }
 
     .hero-grid {
